@@ -4,9 +4,16 @@
         <title>Socket.IO</title>
     </head>
     <body>
+        <button id="pingBtn">PING</button>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
         <script>
             const socket = io();
+            const button = document.querySelector('#pingBtn');
+
+            button.addEventListener('click', (e) => {
+                socket.emit('ping');
+                return;
+            });
         </script>
     </body>
 </html>
