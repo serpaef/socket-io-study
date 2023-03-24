@@ -10,10 +10,14 @@ const io = require('socket.io')(http, {
     }
 });
 
+io.on('connection', (socket) => {
+    console.log(`User connected. ID ${socket.id}`);
+});
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
 http.listen(PORT, () => {
-    console.log(`Ouvindo na porta ${PORT}`);
+    console.log(`Listening on port ${PORT}`);
 });
