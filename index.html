@@ -7,25 +7,6 @@
         <button id="pingBtn">PING</button>
         <ul id="messages"></ul>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
-        <script>
-            const socket = io();
-
-            const button = document.querySelector('#pingBtn');
-
-            button.addEventListener('click', (e) => {
-                socket.emit('ping');
-                return;
-            });
-
-            const createMessage = (message) => {
-                const messagesUl = document.querySelector('#messages');
-                const li = document.createElement('li');
-                li.innerText = message;
-                messagesUl.appendChild(li);
-            }
-
-            socket.on('welcome', (msg) => createMessage(msg));
-            socket.on('pong', (msg) => createMessage(msg));
-        </script>
+        <script src="./js/ping.js"></script>
     </body>
 </html>
